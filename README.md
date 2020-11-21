@@ -72,7 +72,7 @@ This project refers the official code [link](https://github.com/michuanhaohao/re
 * The pretrained (128x64) [model](https://pan.baidu.com/s/1FrEOT3h7lAePddFHNWIEjg) can be downloaded now.
 Extraction code is **u3q5**.
 * If you can't use Baidu cloud, download the file [here](https://github.com/lulujianjie/person-reid-tiny-baseline/issues/13).
-  *
+  * Then, fix some code block like [here](https://github.com/lulujianjie/person-reid-tiny-baseline/issues/16).
 
 ## Get Started
 1. `cd` to folder where you want to download this repo
