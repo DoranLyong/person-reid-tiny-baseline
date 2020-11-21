@@ -73,6 +73,17 @@ This project refers the official code [link](https://github.com/michuanhaohao/re
 Extraction code is **u3q5**.
 * If you can't use Baidu cloud, download the file [here](https://github.com/lulujianjie/person-reid-tiny-baseline/issues/13).
   * Then, fix some code block like [here](https://github.com/lulujianjie/person-reid-tiny-baseline/issues/16).
+  ```python 
+  # ./model/backbones/resnet.py 
+  def load_param(self, model_path):
+      param_dict = torch.load(model_path)
+          for i in param_dict:
+              j = i.replace("base.","")
+              if 'fc' in i:
+                  continue
+              if j in self.state_dict().keys():
+                  self.state_dict()[j].copy_(param_dict[i])
+  ```
 
 ## Get Started
 1. `cd` to folder where you want to download this repo
