@@ -36,9 +36,9 @@ This project refers the official code [link](https://github.com/michuanhaohao/re
 
     $root 
     ├── data
-    │
-    │
-    ├── person-reid-tiny-baseline
+    │     ├── Market-1501
+    │     └── DukeMTMC-reID
+    └── person-reid-tiny-baseline
           ├── config                  # hyperparameters settings
           │   └── ...                 
           ├── datasets                # data loader
