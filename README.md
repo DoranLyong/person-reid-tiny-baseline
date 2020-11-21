@@ -34,29 +34,33 @@ This project refers the official code [link](https://github.com/michuanhaohao/re
 
 ## Directory layout
 
-    .
-    ├── config                  # hyperparameters settings
-    │   └── ...                 
-    ├── datasets                # data loader
-    │   └── ...           
-    ├── log                     # log and model weights             
-    ├── loss                    # loss function code
-    │   └── ...   
-    ├── model                   # model
-    │   └── ...  
-    ├── processor               # training and testing procedures
-    │   └── ...    
-    ├── solver                  # optimization code
-    │   └── ...   
-    ├── tools                   # tools
-    │   └── ...
-    ├── utils                   # metrics code
-    │   └── ...
-    ├── train.py                # train code 
-    ├── test.py                 # test code 
-    ├── get_vis_result.py       # get visualized results 
-    ├── docs                    # docs for readme              
-    └── README.md
+    $root 
+    ├── data
+    │
+    │
+    ├── person-reid-tiny-baseline
+          ├── config                  # hyperparameters settings
+          │   └── ...                 
+          ├── datasets                # data loader
+          │   └── ...           
+          ├── log                     # log and model weights             
+          ├── loss                    # loss function code
+          │   └── ...   
+          ├── model                   # model
+          │   └── ...  
+          ├── processor               # training and testing procedures
+          │   └── ...    
+          ├── solver                  # optimization code
+          │   └── ...   
+          ├── tools                   # tools
+          │   └── ...
+          ├── utils                   # metrics code
+          │   └── ...
+          ├── train.py                # train code 
+          ├── test.py                 # test code 
+          ├── get_vis_result.py       # get visualized results 
+          ├── docs                    # docs for readme              
+          └── README.md
 
 
 ## Pipeline
