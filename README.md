@@ -95,6 +95,32 @@ Extraction code is **u3q5**.
     - torchvision
     - cv2 (optional)
 
+## Configuration 
+Reset the configuration following your environment.<br/>
+<br/>
+In my case: 
+```python 
+# ./config/configs.py 
+class Config(DefaultConfig):
+    """
+    mAP 86.2, Rank1 94.4, @epoch 185
+    """
+
+    def __init__(self):
+        super(Config, self).__init__()
+        self.CFG_NAME = 'baseline'
+        self.DATA_DIR = '$your_root/data/Market-1501'
+        self.PRETRAIN_CHOICE = 'imagenet'
+        self.PRETRAIN_PATH = '$your_root/person-reid-tiny-baseline/pretrained_models/resnet50_person_reid_128x64.pth'
+
+        self.LOSS_TYPE = 'triplet+softmax+center'
+        self.TEST_WEIGHT = './output/resnet50_185.pth'
+
+        self.FLIP_FEATS = 'off'
+        self.HARD_FACTOR = 0.2
+        self.RERANKING = True
+```
+
 
 ## Train
 
