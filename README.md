@@ -1,3 +1,6 @@
+This repository is reproduced from [lulujianjie/person-reid-tiny-baseline](https://github.com/lulujianjie/person-reid-tiny-baseline).
+
+
 # Tiny Person ReID Baseline
 Paper: "Bag of Tricks and A Strong Baseline for Deep Person Re-identification"[[pdf]](https://arxiv.org/abs/1903.07071)
 
