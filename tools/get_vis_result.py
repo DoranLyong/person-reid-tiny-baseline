@@ -32,7 +32,8 @@ if __name__ == "__main__":
     cudnn.benchmark = True
 
     model = make_model(Cfg, 255)
-    model.load_param(Cfg.WEIGHT)
+#    model.load_param(Cfg.WEIGHT)
+    model.load_param(Cfg.TEST_WEIGHT)
 
     device = 'cuda'
     model = model.to(device)
@@ -50,7 +51,12 @@ if __name__ == "__main__":
     for test_img in os.listdir(Cfg.QUERY_DIR):
         logger.info('Finding ID {} ...'.format(test_img))
 
-        gallery_feats = torch.load(Cfg.LOG_DIR + 'feats.pth')
+        if not test_img.split(".")[-1] in ['jpg', 'png']:
+            print("It's not an image.")
+            continue
+
+
+        gallery_feats = torch.load('./log/gfeats.pth')
         img_path = np.load('./log/imgpath.npy')
         print(gallery_feats.shape, len(img_path))
         query_img = Image.open(Cfg.QUERY_DIR + test_img)

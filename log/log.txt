@@ -1,0 +1,7 @@
+2020-11-21 20:49:55,414 person-reid-tiny-baseline INFO: Running with config:
+baseline
+2020-11-21 20:49:57,667 person-reid-tiny-baseline.train INFO: start training
+2020-11-21 20:50:12,871 person-reid-tiny-baseline.train INFO: Epoch[1] Iteration[50/186] Loss: 8.228, Acc: 0.085, Base Lr: 3.82e-05
+2020-11-21 20:50:26,201 person-reid-tiny-baseline.train INFO: Epoch[1] Iteration[100/186] Loss: 8.021, Acc: 0.184, Base Lr: 3.82e-05
+2020-11-21 20:50:39,378 person-reid-tiny-baseline.train INFO: Epoch[1] Iteration[150/186] Loss: 7.822, Acc: 0.259, Base Lr: 3.82e-05
+2020-11-21 20:50:48,237 person-reid-tiny-baseline.train INFO: Epoch 1 done. Time per batch: 0.276[s] Speed: 231.7[samples/s]

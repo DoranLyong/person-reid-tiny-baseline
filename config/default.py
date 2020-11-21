@@ -74,4 +74,4 @@ class DefaultConfig:
         self.TEST_METHOD = 'cosine'
         self.FLIP_FEATS = 'off'  # using fliped feature for testing, option: 'on', 'off'
         self.RERANKING = False  # re-ranking
-        self.QUERY_DIR = '/home/lujj/datasets/Market-1501-v15.09.15/query/'
+        self.QUERY_DIR = '/home/kist-ubuntu/workspace_reID/data/Market-1501/query/'

@@ -25,12 +25,13 @@ class Config(DefaultConfig):
     def __init__(self):
         super(Config, self).__init__()
         self.CFG_NAME = 'baseline'
-        self.DATA_DIR = '/nfs/public/datasets/person_reid/Market-1501-v15.09.15'
+        self.DATA_DIR = '/home/kist-ubuntu/workspace_reID/data/Market-1501'
         self.PRETRAIN_CHOICE = 'imagenet'
-        self.PRETRAIN_PATH = '/nfs/public/pretrained_models/resnet50-19c8e357.pth'
+        self.PRETRAIN_PATH = '/home/kist-ubuntu/workspace_reID/person-reid-tiny-baseline/pretrained_models/resnet50_person_reid_128x64.pth'
 
         self.LOSS_TYPE = 'triplet+softmax+center'
         self.TEST_WEIGHT = './output/resnet50_185.pth'
+
         self.FLIP_FEATS = 'off'
         self.HARD_FACTOR = 0.2
         self.RERANKING = True
