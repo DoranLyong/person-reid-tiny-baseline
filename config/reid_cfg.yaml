@@ -1,0 +1,83 @@
+CUSTOM_CFG:
+  # Custom configs(ref) https://github.com/DoranLyong/person-reid-tiny-baseline/blob/master/config/configs.py
+  CFG_NAME : 'baseline'
+  DATA_DIR : './person-reid-tiny-baseline/Market-1501'   # dataset path
+  QUERY_DIR : './person-reid-tiny-baseline/Market-1501/query/'  # Query path for test 
+  PRETRAIN_CHOICE : 'imagenet'
+  PRETRAIN_PATH : './person-reid-tiny-baseline/pretrained_models/resnet50_person_reid_128x64.pth'  # pretrained weight path
+
+  LOSS_TYPE : 'triplet+softmax+center'  # option select like: 'softmax' 'triplet+softmax','softmax+center','triplet+softmax+center'
+  TEST_WEIGHT : './output/resnet50_200.pth'  # trained weight path 
+
+  FLIP_FEATS : 'off' # using fliped feature for testing, option: 'on', 'off'
+  HARD_FACTOR : 0.2  # harder example mining
+  RERANKING : true  # re-ranking
+
+  
+
+
+DEFAULT_CFG:
+  # Default (ref) https://github.com/DoranLyong/person-reid-tiny-baseline/blob/master/config/default.py
+  PROJECT_NAME : 'person-reid-tiny-baseline' 
+  LOG_DIR : './log'  # log directory
+  OUTPUT_DIR : './output'  # saved model directory
+  DEVICE_ID : '0'  # GPU IDs, i.e. "0,1,2" for multiple GPUs
+
+  LOG_PERIOD : 50  # iteration of displaying training log
+  CHECKPOINT_PERIOD : 5  # saving model period
+  EVAL_PERIOD : 5  # validation period
+  MAX_EPOCHS : 200  # max training epochs
+
+  # dataloader 
+  DATALOADER_NUM_WORKERS : 8  # number of dataloader workers
+  SAMPLER : 'triplet'  # batch sampler, option: 'triplet','softmax'
+  BATCH_SIZE : 64  # MxN, M: number of persons, N: number of images of per person
+  NUM_IMG_PER_ID : 4  # N, number of images of per person
+
+  # model
+  INPUT_SIZE :  # HxW  (ref) https://www.baeldung.com/spring-boot-yaml-list
+    - 256 # Height
+    - 128 # Width  
+  MODEL_NAME : 'resnet50'  # backbone name, option: 'resnet50',
+  LAST_STRIDE : 1  # the stride of the last layer of resnet50
+  
+  # loss
+  LOSS_LABELSMOOTH : 'on'  # using labelsmooth, option: 'on', 'off'
+  COS_LAYER : false
+
+  # solver
+  OPTIMIZER : 'Adam'  # optimizer
+  BASE_LR : 0.00035  # base learning rate
+
+  CE_LOSS_WEIGHT : 1.0  # weight of softmax loss
+  TRIPLET_LOSS_WEIGHT : 1.0  # weight of triplet loss
+  CENTER_LOSS_WEIGHT : 0.0005  # weight of center loss
+
+  WEIGHT_DECAY : 0.0005
+  BIAS_LR_FACTOR : 1.0
+  WEIGHT_DECAY_BIAS : 0.0005
+  MOMENTUM : 0.9
+  CENTER_LR : 0.5  # learning rate for the weights of center loss
+  MARGIN : 0.3  # triplet loss margin
+
+  STEPS : 
+    - 40  
+    - 70  
+    - 130
+  GAMMA : 0.1  # decay factor of learning rate
+  WARMUP_FACTOR : 0.01
+  WARMUP_EPOCHS : 10  # warm up epochs
+  WARMUP_METHOD : 'linear'  # option: 'linear','constant'
+
+  # test
+  TEST_IMS_PER_BATCH : 128
+  FEAT_NORM : 'yes'
+  
+  DIST_MAT : 'dist_mat.npy'
+  PIDS : 'pids.npy'
+  CAMIDS : 'camids.npy'
+  IMG_PATH : 'imgpath.npy'
+  Q_FEATS : 'qfeats.pth'  # query feats
+  G_FEATS : 'gfeats.pth'  # gallery feats
+  TEST_METHOD : 'cosine'
+  

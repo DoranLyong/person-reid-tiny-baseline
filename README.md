@@ -69,12 +69,14 @@ This project refers the official code [link](https://github.com/michuanhaohao/re
 </div>
 
 ## Pretrained Model
-* The pretrained (128x64) [model](https://pan.baidu.com/s/1FrEOT3h7lAePddFHNWIEjg) can be downloaded now.
-Extraction code is **u3q5**.
+* The pretrained (128x64) [model](https://pan.baidu.com/s/1FrEOT3h7lAePddFHNWIEjg) can be downloaded now.Extraction code is **u3q5**.
 * If you can't use Baidu cloud, download the file [here](https://github.com/lulujianjie/person-reid-tiny-baseline/issues/13).
-  * Then, fix some code block like [here](https://github.com/lulujianjie/person-reid-tiny-baseline/issues/16).
+    * or you can download it [here](https://drive.google.com/file/d/16RmXYOx06tIYfiAF9ej2iFn8SXKyCgbF/view?usp=sharing)
+    * then, locate it in ```./pretrained_models/resnet50_person_reid_128x64.pth```
+    * you can specify its path with ```self.PRETRAIN_PATH``` variable in ```./config/configs.py```
+    * Then, fix some code block like [here](https://github.com/lulujianjie/person-reid-tiny-baseline/issues/16).
   ```python 
-  # ./model/backbones/resnet.py 
+    # ./model/backbones/resnet.py 
   def load_param(self, model_path):
       param_dict = torch.load(model_path)
           for i in param_dict:
@@ -125,19 +127,20 @@ class Config(DefaultConfig):
 ## Train
 
 ```bash
-python train.py
+~$ python train.py
 ```
 
 ## Test
 
 ```bash
-python test.py
+~$ python test.py
+~$ python inference_test.py  # for analyzing how 'test.py' works
 ```
 
 To get visualized reID results, first create `results` folder in log dir, then:
 ```bash
-python ./tools/get_vis_result.py
-
+~$ python ./tools/get_vis_result.py  # by saving the resutls 
+~$ python vis_test.py # just showing the results 
 ```
 You will get the ranked results (query|rank1|rank2|...), like:
 <div align=center>

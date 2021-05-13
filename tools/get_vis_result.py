@@ -11,8 +11,9 @@ from model import make_model
 
 import numpy as np
 import cv2
-from utils.metrics import cosine_similarity
-
+from utils.metrics import (cosine_similarity, 
+                            euclidean_distance,
+                        )
 
 def visualizer(test_img, camid, top_k = 10, img_size=[128,128]):
     figure = np.asarray(query_img.resize((img_size[1],img_size[0])))
@@ -64,7 +65,11 @@ if __name__ == "__main__":
         input = input.to(device)
         with torch.no_grad():
             query_feat = model(input)
+            query_feat = torch.nn.functional.normalize(query_feat, dim=1, p=2)  # Normalize the feature vector 
+                                                                                # because gallery_feats are also normalized 
 
-        dist_mat = cosine_similarity(query_feat, gallery_feats)
+#        dist_mat = cosine_similarity(query_feat, gallery_feats) # bad & fast 
+        dist_mat = euclidean_distance(query_feat, gallery_feats) # good & fast 
+
         indices = np.argsort(dist_mat, axis=1)
         visualizer(test_img, camid='mixed', top_k=10, img_size=Cfg.INPUT_SIZE)

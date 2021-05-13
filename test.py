@@ -11,6 +11,7 @@ from utils.logger import setup_logger
 if __name__ == "__main__":
     cfg = Config()
     log_dir = cfg.LOG_DIR
+    print(cfg)
     logger = setup_logger('{}.test'.format(cfg.PROJECT_NAME), log_dir)
     os.environ['CUDA_VISIBLE_DEVICES'] = cfg.DEVICE_ID
     cudnn.benchmark = True
