@@ -1,0 +1,1 @@
+Locate the pretrained weight, 'resnet50_person_reid_128x64.pth', here
